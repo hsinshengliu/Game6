@@ -13,6 +13,7 @@ REL_TITLE = 2048
 REL_VERSION := 1.0.0
 REL_DESCRIPTION = $(REL_TITLE), a tile-based game; from Game6 project
 REL_AR = $(REL_DIR)-v$(REL_VERSION).deb
+REL_MSI = $(REL_DIR)-v$(REL_VERSION)-setup.exe
 
 ifeq ($(TARGET),main_gtk)
 TERMINAL = false
@@ -20,6 +21,7 @@ else
 TERMINAL = true
 endif
 
+ISSC = "C:/Program Files (x86)/Inno Setup 5/ISCC.exe"
 DPKG_DEB = dpkg-deb
 DPKG = dpkg
 INSTALL = install
@@ -31,15 +33,18 @@ RM = rm
 CC = gcc
 
 ifeq ($(OS),Windows_NT)
-CFLAGS = -mms-bitfields -I"C:/mingw64/include/gtk-2.0" \
- -I"C:/mingw64/lib/gtk-2.0/include" -I"C:/mingw64/include/atk-1.0" \
- -I"C:/mingw64/include/cairo" -I"C:/mingw64/include/pango-1.0" \
- -I"C:/mingw64/include/glib-2.0" -I"C:/mingw64/lib/glib-2.0/include" \
- -I"C:/mingw64/include/libpng14" -I"C:/mingw64/include/gdk-pixbuf-2.0"
+PREFIX = "C:/mingw64"
+CFLAGS = -mms-bitfields -I$(PREFIX)"/include/gtk-2.0" \
+ -I$(PREFIX)"/lib/gtk-2.0/include" -I$(PREFIX)"/include/atk-1.0" \
+ -I$(PREFIX)"/include/cairo" -I$(PREFIX)"/include/pango-1.0" \
+ -I$(PREFIX)"/include/glib-2.0" -I$(PREFIX)"/lib/glib-2.0/include" \
+ -I$(PREFIX)"/include/libpng14" -I$(PREFIX)"/include/gdk-pixbuf-2.0"
 
-LIBS = -L"C:/mingw64/lib" -lgtk-win32-2.0 -lgdk-win32-2.0 -latk-1.0 \
+LIBS = -L$(PREFIX)"/lib" -lgtk-win32-2.0 -lgdk-win32-2.0 -latk-1.0 \
  -lgdk_pixbuf-2.0 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lcairo \
  -lgobject-2.0 -lgmodule-2.0 -lglib-2.0 -lintl
+
+RELEASE = rel-msi
 else
 UNAME_S := $(shell uname -s)
 ifeq ($(UNAME_S),Linux)
@@ -60,6 +65,14 @@ LIBS = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0\
 RELEASE = rel-deb
 endif
 endif
+
+rel-msi-clr:
+	@$(RM) -rf $(REL_DIR)
+	@$(RM) -rf $(REL_MSI)
+
+rel-msi: rel-msi-clr
+	@$(ECHO) "releasing msi package"
+	@$(ISSC) g6-2048.iss
 
 rel-deb-clr:
 	@$(RM) -rf $(REL_DIR)
