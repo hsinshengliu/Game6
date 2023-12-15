@@ -38,7 +38,8 @@ CFLAGS = -mms-bitfields -I$(PREFIX)"/include/gtk-2.0" \
  -I$(PREFIX)"/lib/gtk-2.0/include" -I$(PREFIX)"/include/atk-1.0" \
  -I$(PREFIX)"/include/cairo" -I$(PREFIX)"/include/pango-1.0" \
  -I$(PREFIX)"/include/glib-2.0" -I$(PREFIX)"/lib/glib-2.0/include" \
- -I$(PREFIX)"/include/libpng14" -I$(PREFIX)"/include/gdk-pixbuf-2.0"
+ -I$(PREFIX)"/include/libpng14" -I$(PREFIX)"/include/gdk-pixbuf-2.0" \
+ -mwindows
 
 LIBS = -L$(PREFIX)"/lib" -lgtk-win32-2.0 -lgdk-win32-2.0 -latk-1.0 \
  -lgdk_pixbuf-2.0 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lcairo \
