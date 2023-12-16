@@ -4,6 +4,7 @@
 #define MyAppName "g6-2048"
 #define MyAppVersion "1.0.0"
 #define MyAppExeName "g6-2048.exe"
+#define MyAppIcoName "g6-2048.ico"
 #define MyAppDependDir1 "C:\mingw64\bin"
 ;#define MyAppDependDir2 "C:\msys64\usr\bin"
 #define MyTmpDir "msi"
@@ -20,15 +21,15 @@ DefaultDirName={pf}\{#MyAppName}
 DisableProgramGroupPage=yesLicenseFile=..\LICENSE
 OutputDir={#MyTmpDir}
 OutputBaseFilename={#MyAppName}-v{#MyAppVersion}-setup.exe
-SetupIconFile=g6-2048.ico
+SetupIconFile={#MyAppIcoName}
 Compression=lzma
 SolidCompression=yes
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"
 
-;[Tasks]
-;Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
+[Tasks]
+Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
 Source: "{#MyAppExeName}"; DestDir: "{app}"; Flags: ignoreversion
@@ -53,11 +54,12 @@ Source: "{#MyAppDependDir1}\libexpat-1.dll"; DestDir: "{app}"; Flags: ignorevers
 Source: "{#MyAppDependDir1}\libpng14-14.dll"; DestDir: "{app}"; Flags: ignoreversion
 Source: "{#MyAppDependDir1}\zlib1.dll"; DestDir: "{app}"; Flags: ignoreversion
 ;Source: "{#MyAppDependDir2}\msys-2.0.dll"; DestDir: "{app}"; Flags: ignoreversion
+Source: "{#MyAppIcoName}"; DestDir: "{app}"; Flags: ignoreversion
 ; NOTE: Don't use "Flags: ignoreversion" on any shared system files
 
 [Icons]
-Name: "{commonprograms}\{#MyAppName}"; Filename: ".\{#MyAppExeName}"
-;Name: "{commondesktop}\{#MyAppName}"; Filename: ".\{#MyAppExeName}"; Tasks: desktopicon
+Name: "{commonprograms}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyAppIcoName}"
+Name: "{commondesktop}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"; IconFilename: "{app}\{#MyAppIcoName}"; Tasks: desktopicon
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "{cm:LaunchProgram,{#StringChange(MyAppName, '&', '&&')}}"; Flags: nowait postinstall skipifsilent
