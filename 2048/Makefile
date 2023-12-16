@@ -7,13 +7,12 @@ all: $(TARGET)
 
 EXE = g6-2048.exe
 ICO = g6-2048.svg
-REL_DIR = g6-2048
 REL_PKG = g6-2048
 REL_TITLE = 2048
 REL_VERSION := 1.0.0
 REL_DESCRIPTION = $(REL_TITLE), a tile-based game; from Game6 project
-REL_AR = $(REL_DIR)-v$(REL_VERSION).deb
-REL_MSI = $(REL_DIR)-v$(REL_VERSION)-setup.exe
+REL_AR = $(REL_PKG)-v$(REL_VERSION).deb
+REL_MSI = $(REL_PKG)-v$(REL_VERSION)-setup.exe
 
 ifeq ($(TARGET),main_gtk)
 TERMINAL = false
@@ -45,6 +44,7 @@ LIBS = -L$(PREFIX)"/lib" -lgtk-win32-2.0 -lgdk-win32-2.0 -latk-1.0 \
  -lgdk_pixbuf-2.0 -lpangowin32-1.0 -lpangocairo-1.0 -lpango-1.0 -lcairo \
  -lgobject-2.0 -lgmodule-2.0 -lglib-2.0 -lintl
 
+REL_DIR = msi
 RELEASE = rel-msi
 else
 UNAME_S := $(shell uname -s)
@@ -63,6 +63,7 @@ LIBS = -lgtk-x11-2.0 -lgdk-x11-2.0 -lpangocairo-1.0 -latk-1.0\
  -lcairo -lgdk_pixbuf-2.0 -lgio-2.0 -lpangoft2-1.0 -lpango-1.0\
  -lgobject-2.0 -lglib-2.0 -lharfbuzz -lfontconfig -lfreetype
 
+REL_DIR = deb
 RELEASE = rel-deb
 endif
 endif

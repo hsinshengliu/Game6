@@ -6,7 +6,7 @@
 #define MyAppExeName "g6-2048.exe"
 #define MyAppDependDir1 "C:\mingw64\bin"
 ;#define MyAppDependDir2 "C:\msys64\usr\bin"
-#define MyTmpDir "g6-2048"
+#define MyTmpDir "msi"
 
 [Setup]
 ; NOTE: The value of AppId uniquely identifies this application.
