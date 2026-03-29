@@ -58,3 +58,42 @@ Above commands are tested under *Windows 10* and *Ubuntu 20.04*.
 
 [Prebuilt *Ubuntu 20.04* VMware Image](https://www.osboxes.org/ubuntu/)
 
+### Appendix
+
+<details>
+<summary>Using the <b>Node-API</b> of <b>Node.js</b></summary>
+
+Prerequisite: *nvm* and *node* should be installed first.
+```sh
+sudo apt-get update
+apt policy libssl-dev
+apt policy build-essential
+apt policy make
+apt policy curl
+curl https://raw.githubusercontent.com/creationix/nvm/v0.40.4/install.sh | bash
+source ~/.profile
+nvm --version
+nvm ls-remote
+nvm install v24.14.1
+nvm use 24.14.1
+nvm alias default 24.14.1
+```
+
+Related packages should be installed either.
+```sh
+npm install
+```
+
+To build native code (i.e. *C* language here).
+```sh
+npx node-gyp rebuild
+```
+
+Then, perform the test i.e. application.
+```sh
+npm test
+```
+
+Above commands are tested under *Ubuntu 24.04*.
+</details>
+

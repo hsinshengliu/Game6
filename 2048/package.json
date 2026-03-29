@@ -1,0 +1,16 @@
+{
+  "name": "g6-2048",
+  "version": "1.0.0",
+  "description": "2048 using Node.js Addons",
+  "main": "main_ansi.js",
+  "private": true,
+  "dependencies": {
+    "bindings": "~1.5.0",
+    "prompt-sync": "^4.2.0"
+  },
+  "scripts": {
+    "test": "node main_ansi.js"
+  },
+  "gypfile": true
+}
+
