@@ -61,7 +61,7 @@ Above commands are tested under *Windows 10* and *Ubuntu 20.04*.
 ### Appendix
 
 <details>
-<summary>Using the <b>Node-API</b> of <b>Node.js</b></summary>
+<summary>Using <b>Electron</b> and <b>Node-API</b> of <b>Node.js</b>; for experimental</summary>
 
 Prerequisite: *nvm* and *node* should be installed first.
 ```sh
@@ -89,9 +89,14 @@ To build native code (i.e. *C* language here).
 npx node-gyp rebuild
 ```
 
-Then, perform the test i.e. application.
+Then, perform the test i.e. application under TUI.
 ```sh
 npm test
+```
+
+Alternatively, perform the test i.e. application under GUI.
+```sh
+npm start
 ```
 
 Above commands are tested under *Ubuntu 24.04*.

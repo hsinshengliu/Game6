@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; connect-src 'self' http://localhost:9527; style-src 'self' 'unsafe-inline'">
+    <link href="./styles_electron.css" rel="stylesheet">
+    <title>2048</title>
+  </head>
+  <body>
+    <h2>Tile game 2048</h2>
+    <div id="main">
+    <span class="disp">
+    <p>
+    <em id="status"></em>
+    </p>
+    </span>
+    <span class="disp">
+    <table>
+    <tr>
+      <td id="c0"></td>
+      <td id="c1"></td>
+      <td id="c2"></td>
+      <td id="c3"></td>
+    </tr>
+    <tr>
+      <td id="c4"></td>
+      <td id="c5"></td>
+      <td id="c6"></td>
+      <td id="c7"></td>
+    </tr>
+    <tr>
+      <td id="c8"></td>
+      <td id="c9"></td>
+      <td id="c10"></td>
+      <td id="c11"></td>
+    </tr>
+    <tr>
+      <td id="c12"></td>
+      <td id="c13"></td>
+      <td id="c14"></td>
+      <td id="c15"></td>
+    </tr>
+    </table>
+    </span>
+    <span class="act">
+    <table>
+    <tr>
+      <td></td>
+      <td><button type="button" id="move-up"/>&#x21D1</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td><button type="button" id="move-left"/>&#x21D0</td>
+      <td></td>
+      <td><button type="button" id="move-right"/>&#x21D2</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button type="button" id="move-down"/>&#x21D3</td>
+      <td></td>
+    </tr>
+    </table>
+    </span>
+    </div>
+    <!-- You can also require other files to run in this process -->
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./renderer_electron.js"></script>
+    <label>Based on the example of <a href="https://github.com/electron/minimal-repro" target="_blank">minimal-repro</a></label>
+  </body>
+</html>
+

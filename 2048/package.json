@@ -2,15 +2,20 @@
   "name": "g6-2048",
   "version": "1.0.0",
   "description": "2048 using Node.js Addons",
-  "main": "main_ansi.js",
+  "main": "main_electron.js",
   "private": true,
   "dependencies": {
+    "jquery": "^4.0.0",
     "bindings": "~1.5.0",
     "prompt-sync": "^4.2.0"
   },
   "scripts": {
+    "start": "electron .",
     "test": "node main_ansi.js"
   },
-  "gypfile": true
+  "gypfile": true,
+  "devDependencies": {
+    "electron": "^19.0.0"
+  }
 }
 

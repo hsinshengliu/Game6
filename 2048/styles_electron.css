@@ -1,0 +1,40 @@
+/* styles.css */
+#main {
+  display: grid;
+  place-items: center;
+}
+.disp em {
+  font-size: 24px;
+  font-family: "Times New Roman";
+}
+.disp table {
+  border: 1px solid;
+}
+.disp th {
+  text-align: center;
+}
+.disp td {
+  border: 1px solid;
+  padding: 1px;
+  text-align: center;
+  width: 60px;
+  height: 60px;
+  font-size: 16px;
+  font-family: "Courier New";
+}
+.act table {
+  border: none;
+}
+.act td {
+  border: none;
+  width: 45px;
+  height: 45px;
+}
+.act button {
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: "Lucida Console";
+}
+/* Add styles here to customize the appearance of your app */
+
